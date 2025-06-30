@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=5" name="viewport" />
+  <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
+
+  <title>Hey New Friend!</title>
+  <link rel="icon" type="image/x-icon" href="https://www.palingit.com/favicon.ico" />
+  <meta name="description" content="A little surprise for my new friend 😊" />
+</head>
+
+<body style="background: linear-gradient(to bottom, #ffe1e1, #ff217de0), url(./r.jpg); height: 100vh;">
+  <audio src="./friendship_song.mp3" id="linkmp3" class="sembunyi"></audio>
+
+  <div id="bodyblur">
+    <img src="" id="wallpaper" />
+  </div>
+
+  <div id="Content">
+    <div id="kadoIn">
+      <img src="./Valentine-Surprise.png" alt="Open Gift Button" />
+    </div>
+    <p id="ket">
+      <span style="font-style: italic; color: rgb(0,0,0); margin-top: 3px !important;">Open the surprise, friend 😊</span>
+    </p>
+
+    <div class="kumpulanstiker" style="margin-top: 95px;">
+      <img src="https://media.tenor.com/4Ijycn6xFzUAAAAj/mochi-blue-roses.gif" id="fotostiker" />
+      <img src="https://feeldreams.github.io/bunga.gif" id="fotostiker1" />
+      <img src="https://feeldreams.github.io/pandacoklat.gif" id="fotostiker2" />
+      <img src="https://media.tenor.com/snFoLI-S9CQAAAAj/milk-and-mocha.gif" id="fotostiker3" />
+      <img src="https://feeldreams.github.io/emawh.gif" id="fotostiker4" />
+      <img src="https://feeldreams.github.io/pandacoklat.gif" id="fotostiker5" />
+    </div>
+
+    <p id="halo" class="halo"></p>
+
+    <div>
+      <blockquote id="bq" data-text="🫱🏻‍🫲🏻">
+        <p id="kalimat">
+          Hey , I’m really happy we became friends! 🌟
+        </p>
+
+        <p id="pesan1">Tap here for a little friendship surprise! 😊</p>
+
+        <div id="kolombaru">
+          <li id="lv1">🫱🏻‍🫲🏻</li>
+          <li id="lv2">💌</li>
+          <li id="lv3">😄</li>
+          <li id="lv4">🌟</li>
+        </div>
+
+        <p id="pesan2">You’ve already made my day better! 😄</p>
+        <p id="pesan3">Guess what makes today cool?</p>
+        <p id="pesan4" class="sty2">We’ve been friends for 2 days! 🥰</p>
+        <p id="pesan5" class="sty2">
+          I know it’s not long, but I already enjoy talking to you!
+        </p>
+        <p id="pesan6" class="sty2">
+          Here’s to more chats, laughs, and good vibes ahead! 🫶
+        </p>
+        <p class="sty2">Thanks for being an awesome new friend, 😊</p>
+
+        <p id="opsL">Tap to continue our friendship celebration!</p>
+      </blockquote>
+    </div>
+
+    <div id="Tombol"><a id="By">&#128140; Next</a></div>
+
+    <div id="pesanditolak">
+      <img id="stikerditolak" src="love/images/weee.gif" />
+      <p id="kataditolak">
+        Oops! You can’t skip this friendship magic. 😋
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const body = document.querySelector("body");
+    const swalst = Swal.mixin({
+      timer: 2300,
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      timerProgressBar: true,
+      imageHeight: 90,
+    });
+    audio = new Audio("" + linkmp3.src);
+    ftganti = 0;
+    fungsi = 0;
+    fungsiAwal = 0;
+    deffotostiker = fotostiker.src;
+    Content.style = "opacity:1;margin-top:16vh";
+    const swals = Swal.mixin({
+      allowOutsideClick: false,
+      cancelButtonColor: "#FF0040",
+      imageHeight: 80,
+    });
+
+    document.getElementById("kadoIn").onclick = function () {
+      if (fungsiAwal == 0) {
+        audio.play();
+        fungsiAwal = 1;
+        kadoIn.style =
+          "transition:all .8s ease;transform:scale(10);opacity:0";
+        wallpaper.style = "transform: scale(1.5);";
+        ket.style = "display:none";
+        setTimeout(initengahan, 300);
+        setTimeout(inipesan, 500);
+      }
+    };
+
+    async function inipesan() {
+      var { value: nama } = await swals.fire({
+        title: "Hey! What should I call my new friend?",
+        input: "text",
+      });
+      if (nama && nama.length < 11) {
+        window.nama = nama;
+        vketikhalo = "Hello " + nama + ", happy to have you as a friend!";
+        mulainama();
+      } else {
+        await Swal.fire({
+          title: "Oops, that name’s a bit long!",
+          text: "Can you enter a shorter name (under 11 characters)?",
+          icon: "warning",
+        });
+        inipesan();
+      }
+    }
+
+    var tanya = "Wanna celebrate our awesome new friendship? 😄";
+    var opstanya = "Your choice is:";
+    var tompositif = "Yes, let’s do it! 🎉";
+    var tomnegatif = "Maybe later";
+
+    async function pertanyaan() {
+      var { isConfirmed: prtanya } = await swals.fire({
+        title: nama + ", " + tanya,
+        text: "" + opstanya,
+        imageUrl: "" + fotostiker5.src,
+        showCancelButton: true,
+        confirmButtonText: "" + tompositif,
+        cancelButtonText: "" + tomnegatif,
+      });
+      if (prtanya) {
+        pesanwhatsapp = "Yay " + nama + "! Let’s make this friendship awesome!";
+        menuju();
+      } else {
+        pesanwhatsapp = nama + ", don’t miss the friendship fun!";
+        await swalst.fire({
+          title: "" + kataditolak.innerHTML,
+          timer: 2000,
+          imageUrl: "" + stikerditolak.src,
+        });
+        menuju();
+      }
+    }
+  </script>
+  <script src="a.js"></script>
+</body>
+</html>
